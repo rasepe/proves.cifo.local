@@ -88,8 +88,8 @@
 	                
 	                
 	                google.maps.event.addListener(marker, 'click', function() {	
-	                	
 	                    	infowindow.open(map, this);
+	                    	
 	                  });
 	              }
 	            }

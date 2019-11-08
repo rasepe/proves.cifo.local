@@ -5,6 +5,8 @@
 					xhr = new ActiveXObject("Microsoft.XMLHTTP");
 				}
 				xhr.onreadystatechange = function() {
+					// Aviso de carga 
+					document.getElementById("aviso_carga").innerHTML = "un momento por favor";	
 					if (xhr.readyState == 4 && xhr.status == 200) {
 						var arrayCentros = JSON.parse(xhr.responseText);
 						for (var i = 0; i < arrayCentros.records.length; i++) {
@@ -33,6 +35,7 @@
 					 		+'</div>'
 						 	+'</div>'
 							 +'</div>';
+							document.getElementById("aviso_carga").innerHTML = "";
 							// Indicamos en que elemento del DOM, vamos a concatenar cada variable "maquetaHTML"
 							document.getElementById("centros").innerHTML += maquetaHTML;
 						}					
