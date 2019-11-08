@@ -6,7 +6,7 @@ if (window.XMLHttpRequest) {
 }
 xhr.onreadystatechange = function() {
 	// Aviso de carga 
-	document.getElementById("aviso_carga").innerHTML = "un momento por favor";	
+	document.getElementById("aviso_carga").style.display = "block";
 	if (xhr.readyState == 4 && xhr.status == 200) {
 		var arrayCentros = JSON.parse(xhr.responseText);
 		for (var i = 0; i < arrayCentros.records.length; i++) {
@@ -35,7 +35,8 @@ xhr.onreadystatechange = function() {
 				+'</div>'
 				+'</div>'
 				+'</div>';
-			document.getElementById("aviso_carga").innerHTML = "";
+			
+			document.getElementById("aviso_carga").style.display = "none";
 			// Indicamos en que elemento del DOM, vamos a concatenar cada variable "maquetaHTML"
 			document.getElementById("centros").innerHTML += maquetaHTML;
 		}					
@@ -43,6 +44,3 @@ xhr.onreadystatechange = function() {
 }
 xhr.open('GET','http://app.cifo.local/api/public/formacion/centros/?nocache='+Math.random(), true);
 xhr.send();	
-
-
-web.cifo.local  6LeQsb8UAAAAACaHRcTA1Zg9natxRgKGQXvdpoQu
